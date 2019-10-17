@@ -1,4 +1,4 @@
-// Copyright 2018 Northern.tech AS
+// Copyright 2019 Northern.tech AS
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
 package mongo_test
 
 import (
+	"flag"
 	"io/ioutil"
 	"os"
 	"testing"
@@ -29,6 +30,7 @@ var db *dbtest.DBServer
 // Overwrites test execution and allows for test database setup
 func TestMain(m *testing.M) {
 	log.Println("test")
+	flag.Parse()
 	dbdir, _ := ioutil.TempDir("", "dbsetup-test")
 	// os.Exit would ignore defers, workaround
 	status := func() int {
